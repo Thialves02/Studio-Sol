@@ -1,3 +1,16 @@
 #seconds{
     fill:#DDDDDD
 }
+
+#novaPartida{
+    display: none;
+}
+
+/* #numeros{
+    display: flex;
+} */
+
+#numero_1,
+#numero_2{
+    display:none;
+}
