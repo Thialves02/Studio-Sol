@@ -2,19 +2,23 @@ var numeroAleatorio = 0
 var erro = 0
 var palpite = 0
 
-//Roda as funções ao iniciar a página
+//Roda a função ao iniciar a página
 window.onload = function () {
     geraNumeroAleatorio()
 }
 
 //Faz uma requisição para a API e retorna o número aleatório
 async function geraNumeroAleatorio() {
+    //Limpa a variavel erro ao fazer uma nova requisição caso algum erro ocorra
+    erro = 0
+    document.getElementById(`infoPalpite`).innerHTML = "";
+
     var promise = await fetch('https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300')
     var req = await promise.json()
     
     console.log(validaNumeroAleatorio(req))
-
     exibeNumeroInicial()
+    funcionalidadesBotoes()
 }
 
 //Verifica se retornou erro ou um número aleatório
@@ -22,22 +26,62 @@ function validaNumeroAleatorio(req) {
     return req.Error ? erro = req.StatusCode : numeroAleatorio = req.value
 }
 
-//Retorna se o 
+//Valida se o palpite é maior ou menor do que o número aleatório
 function validaPalpite(){
-    
     palpite = document.querySelector("#palpite").value
-    exibePalpite(palpite)
-    
     document.querySelector("#palpite").value = ''
-    return numeroAleatorio != 0 && palpite > numeroAleatorio ? console.log("É menor") : console.log("É maior")
+
+    exibeNumero(palpite)
+    funcionalidadesBotoes()
+    exibeInfoPalpite()
+}
+
+//Função para as funcionalidades dos botões
+//Alterar visibilidade e disabled dos botões conforme palpite ou erro
+function funcionalidadesBotoes() {
+    if(erro != 0 || palpite == numeroAleatorio){
+        document.getElementById(`novaPartida`).style.display = 'block'
+        document.getElementById(`palpite`).disabled = true;
+        document.getElementById(`enviar`).disabled = true;
+    } else {
+        document.getElementById(`novaPartida`).style.display = 'none'
+        document.getElementById(`palpite`).disabled = false;
+        document.getElementById(`enviar`).disabled = false;
+    }
 }
 
 //Exibe o número aleatório ou o erro
 function exibeNumeroInicial(){
-    erro == 0 ? exibePalpite('0') : exibePalpite(`${erro}`)
+    if(erro == 0){
+        exibeNumero('0')
+    } else {
+        exibeNumero(`${erro}`)
+        exibeInfoPalpite()
+    }
 }
 
-function exibePalpite(palpite){
+function exibeInfoPalpite(){
+    var cor
+    document.getElementById(`infoPalpite`).innerHTML = "";
+    if(erro != 0) {
+        cor = "#CC3300"
+        document.getElementById(`infoPalpite`).innerHTML = "<h2>ERRO</h2>";
+    } else if (palpite == numeroAleatorio){
+        cor = "#32BF00"
+        document.getElementById(`infoPalpite`).innerHTML = "<h2>Você acertou</h2>";
+    } else if (palpite > numeroAleatorio){
+        cor = "#FF6600"
+        document.getElementById(`infoPalpite`).innerHTML = "<h2>É menor</h2>";
+    } else if (palpite < numeroAleatorio){
+        cor = "#FF6600"
+        document.getElementById(`infoPalpite`).innerHTML = "<h2>É maior</h2>" ;
+    }
+
+    document.getElementById(`infoPalpite`).style.color = cor
+}
+
+//Função para exibir o palpite ou erro na tela
+function exibeNumero(palpite){
     var cor
     resetaNumeros()
     const numeros = {
@@ -55,6 +99,7 @@ function exibePalpite(palpite){
 
     //For que verifica a quantidade de números digitados
     for (var p = 0; p < palpite.length; p++) {
+        //Verifica se o palpite tem mais de 2 algarismos e gera mais números na tela
         if(palpite.length>1 && p>0){
             document.getElementById(`numero_${p}`).style.display = 'block'
         } else {
@@ -62,39 +107,40 @@ function exibePalpite(palpite){
             document.getElementById(`numero_2`).style.display = 'none'
         }
 
+        //Preenchimento dos segmentos de acordo com o palpite
         for(i=0;i<numeros[palpite[p]].length;i++){
-            var linha = document.getElementById(`${numeros[palpite[p]][i]}_${p}`);
+            var segmento = document.getElementById(`${numeros[palpite[p]][i]}_${p}`);
 
+            //Erro na requisição
             if(erro != 0){
                 cor = "#CC3300"
-                document.getElementById(`novaPartida`).style.display = 'block'
-                document.getElementById(`enviar`).style.disabled = true;
             }
+            //Palpite certo
             else if(palpite == numeroAleatorio){
                 cor = "#32BF00"
-                document.getElementById(`novaPartida`).style.display = 'block'
-                document.getElementById(`enviar`).style.disabled = true;
             }
+            //Palpite errado
             else{
                 cor = "#262A34"
             }
 
-            linha.style.fill = cor
+            segmento.style.fill = cor
         }
     }
 }
 
+//"Limpa" as cores dos segmentos de todos os números
 function resetaNumeros(){
-    const linhas = ['a','b','g','c', 'd','f','e']
+    const segmentos = ['a','b','g','c', 'd','f','e']
     for(n=0;n<3;n++){
-        for(i=0;i<linhas.length;i++){
-            var linha = document.getElementById(`${linhas[i]}_${n}`);
-            linha.style.fill = "#DDDDDD";
+        for(i=0;i<segmentos.length;i++){
+            var segmento = document.getElementById(`${segmentos[i]}_${n}`);
+            segmento.style.fill = "#DDDDDD";
         }
     }
 }
 
-
+//Números para o preenchimento dos segmentos
 function numZero(){
     return ['a', 'b', 'c', 'd', 'e', 'f','e']
 }
@@ -134,7 +180,3 @@ function numOito(){
 function numNove(){
     return ['a','b','g','c', 'd','f',]
 }
-
-/* function numErro(){
-
-} */
