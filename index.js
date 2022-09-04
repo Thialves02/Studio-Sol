@@ -40,7 +40,7 @@ function validaPalpite(){
 //Alterar visibilidade e disabled dos botões conforme palpite ou erro
 function funcionalidadesBotoes() {
     if(erro != 0 || palpite == numeroAleatorio){
-        document.getElementById(`novaPartida`).style.display = 'block'
+        document.getElementById(`novaPartida`).style.display = 'flex'
         document.getElementById(`palpite`).disabled = true;
         document.getElementById(`enviar`).disabled = true;
     } else {

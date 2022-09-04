@@ -44,6 +44,8 @@ main {
 }
 
 #novaPartida{
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 150px;
     background-color:rgba(67, 72, 84, 1);
