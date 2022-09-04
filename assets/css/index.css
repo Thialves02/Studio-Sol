@@ -1,14 +1,96 @@
-#seconds{
-    fill:#DDDDDD
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;700&family=Roboto:ital,wght@0,700;0,900;1,700;1,900&display=swap');
+
+#titulo{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size:36px;
+    color: rgba(239, 108, 0, 1);
+    text-align: center;
+}
+
+#infoPalpite {
+    position: absolute;
+    bottom:70%
+}
+
+#infoPalpite h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size:25px
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#svg-config{
+    display: none;
 }
 
 #novaPartida{
     display: none;
 }
 
-/* #numeros{
+#novaPartida,#containerPalpite button{
+    font-family: 'Roboto', sans-serif;
+    border-radius:5px;
+    border: none;
+    font-weight: bold;
+    color:#ffff;
+    cursor: pointer;
+}
+
+#novaPartida{
+    position: absolute;
+    bottom: 150px;
+    background-color:rgba(67, 72, 84, 1);
+    height:42px;
+    width:150px;
+    margin-bottom: 50px;
+}
+
+#containerPalpite{
     display: flex;
-} */
+    position: absolute;
+    bottom: 100px;
+}
+
+#containerPalpite input{
+    border: 1px solid #FF6600;
+    padding: 10px;
+    width: 220px;
+    height: 22px;
+    border-radius: 5px;
+    margin-right: 20px;
+    outline: none;
+}
+
+#containerPalpite input:disabled{
+    border: 1px solid #DDDDDD;
+}
+
+#containerPalpite button{
+    background-color: rgba(239, 108, 0, 1);
+    width: 70px;
+}
+
+#containerPalpite button:disabled{
+    background-color: #DDDDDD;
+    cursor:auto;
+}
+
+#numeros{
+    display: flex;
+    position: absolute;
+    bottom:45%
+}
+
+#numeros svg{
+    margin: 0 10px;
+}
 
 #numero_1,
 #numero_2{
