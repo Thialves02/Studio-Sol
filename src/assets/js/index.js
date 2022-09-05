@@ -1,4 +1,5 @@
 //Variveis globais
+
 var numeroAleatorio = 0;
 var erro = 0;
 var palpite = 0;
@@ -22,6 +23,15 @@ async function geraNumeroAleatorio() {
   console.log(validaNumeroAleatorio(req));
   exibeNumeroInicial();
   funcionalidadesBotoes();
+}
+
+async function requisicaoAPI() {
+  var req = await axios.get(
+    "https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300"
+  );
+  /* var req = await promise.json(); */
+
+  return promise
 }
 
 //Verifica se retornou erro ou um número aleatório
@@ -214,4 +224,5 @@ module.exports = {
   numOito,
   numNove,
   validaNumeroAleatorio,
+  requisicaoAPI
 };
