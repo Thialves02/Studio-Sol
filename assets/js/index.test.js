@@ -54,9 +54,4 @@ describe("Retorno do número aleatório", () => {
     const req = {"value":300}
     expect(validaNumeroAleatorio(req)).toBe(300);
   });
-  it("Valida se é erro ou número aleatório", async () => {
-    
-    const req = await requisicaoAPI()
-    expect(req.value).toBe(300);
-  });
 });
