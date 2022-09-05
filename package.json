@@ -1,0 +1,24 @@
+{
+  "name": "studio-sol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --env=node --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thialves02/Studio-Sol.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thialves02/Studio-Sol/issues"
+  },
+  "homepage": "https://github.com/Thialves02/Studio-Sol#readme",
+  "devDependencies": {
+    "jest": "^29.0.2",
+    "jest-environment-jsdom": "^29.0.2"
+  }
+}
