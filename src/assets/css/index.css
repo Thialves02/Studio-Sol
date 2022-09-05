@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;700&family=Roboto:ital,wght@0,700;0,900;1,700;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+  
+
+html,body,main{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#titulo{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size:36px;
+    color: rgba(239, 108, 0, 1);
+    position: absolute;
+    top: 50px;
+}
+
+#titulo hr{
+    position: absolute;
+    top: 35px;
+    background-color: #CFCFCF;
+    width: 320px;
+}
+
+#infoPalpite {
+    position: absolute;
+    bottom:70%
+}
+
+#infoPalpite h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size:25px
+}
+
+#svg-config{
+    display: none;
+}
+
+#numeros{
+    display: flex;
+    position: absolute;
+    bottom:45%
+}
+
+#numeros svg{
+    margin: 0 10px;
+}
+
+#numero_1,#numero_2{
+    display:none;
+}
+
+#novaPartida{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 150px;
+    background-color:rgba(67, 72, 84, 1);
+    height:42px;
+    width:200px;
+    margin-bottom: 50px;
+}
+
+#novaPartida,#containerPalpite button{
+    font-family: 'Roboto', sans-serif;
+    border-radius:5px;
+    border: none;
+    font-weight: bold;
+    color:#ffff;
+    cursor: pointer;
+}
+
+#containerPalpite{
+    display: flex;
+    position: absolute;
+    bottom: 100px;
+}
+
+#containerPalpite input{
+    border: 1px solid #FF6600;
+    padding: 10px;
+    width: 220px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 20px;
+    outline: none;
+}
+
+/* ====== FAZ COM QUE AS SETAS DO INPUT NÃO APARECAM ====== */
+#containerPalpite input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+#containerPalpite input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+}
+/* ======================================================== */
+
+#containerPalpite input:disabled{
+    border: 1px solid #DDDDDD;
+}
+
+#containerPalpite button{
+    transition: all ease .2s;
+    background-color: rgba(239, 108, 0, 1);
+    width: 70px;
+}
+
+#containerPalpite button:disabled{
+    background-color: #DDDDDD;
+    cursor:auto;
+}
+
+/* ====== RESPONSIVIDADE PARA DISPOSITIVOS IPHONE SE OU COM DISPLAY DE TAMANHO INFERIOR  ====== */
+@media (max-width: 430px) {
+    #titulo{
+        font-size:30px;
+    }
+    #infoPalpite {
+        position: absolute;
+        bottom: 65%;
+    }
+    #numeros {
+        bottom: 35%;
+    }
+}
+/* ======================================================== */

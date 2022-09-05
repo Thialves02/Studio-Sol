@@ -23,20 +23,18 @@ Aplicação com intuito de trabalhar a memória e a lógica do usuário, fazendo
 
 💻 Realizei testes unitários na aplicação
 
-💻 
-
 💻 Eslint e Prettier para padronizar o código.
 
 # Demo 📸
 
 <div align="center" >
-  <img src="./assets/img/github/desktop.gif" alt="demo-web" height="425">
-  <img src="./assets/img/github/mobile.gif" alt="demo-mobile" height="425">
+  <img src="./src/assets/img/github/desktop.gif" alt="demo-desktop" height="425">
+  <img src="./src/assets/img/github/mobile.gif" alt="demo-mobile" height="425">
 </div>
 
 # Pré-requisitos
 
-Tenha instalado em sua máquina as seguintes ferramentas: Git, Node.js e Yarn.
+Tenha instalado em sua máquina as seguintes ferramentas: Git, Node.js e Yarn ou Npm.
 
 # Rodando a aplicação
 
@@ -51,10 +49,12 @@ $ git clone https://github.com/Thialves02/Studio-Sol.git
 
 ```bash
 # Instalar as dependências
-$ yarn
+$ yarn install
+$ npm install
 
 # Para rodar testes unitários (Opcional)
 $ yarn test
+$ npm test
 ```
 
 3.Abra o jogo
