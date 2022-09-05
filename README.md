@@ -28,8 +28,8 @@ Aplicação com intuito de trabalhar a memória e a lógica do usuário, fazendo
 # Demo 📸
 
 <div align="center" >
-  <img src="./src/assets/img/github/desktop.gif" alt="demo-desktop" height="425">
-  <img src="./src/assets/img/github/mobile.gif" alt="demo-mobile" height="425">
+  <img src="./assets/img/github/desktop.gif" alt="demo-desktop" height="425">
+  <img src="./assets/img/github/mobile.gif" alt="demo-mobile" height="425">
 </div>
 
 # Pré-requisitos
