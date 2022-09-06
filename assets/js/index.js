@@ -20,7 +20,7 @@ async function geraNumeroAleatorio() {
   );
   var req = await promise.json();
 
-  console.log(validaNumeroAleatorio(req));
+  validaNumeroAleatorio(req);
   exibeNumeroInicial();
   funcionalidadesBotoes();
 }
