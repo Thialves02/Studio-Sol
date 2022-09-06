@@ -25,15 +25,6 @@ async function geraNumeroAleatorio() {
   funcionalidadesBotoes();
 }
 
-async function requisicaoAPI() {
-  var req = await axios.get(
-    "https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300"
-  );
-  /* var req = await promise.json(); */
-
-  return promise
-}
-
 //Verifica se retornou erro ou um número aleatório
 function validaNumeroAleatorio(req) {
   return req.Error ? (erro = req.StatusCode) : (numeroAleatorio = req.value);
@@ -224,5 +215,4 @@ module.exports = {
   numOito,
   numNove,
   validaNumeroAleatorio,
-  requisicaoAPI
 };
